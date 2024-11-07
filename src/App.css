@@ -48,15 +48,22 @@
   background-color: #ffffff;
 }
 
+#edit-input {
+  min-width: 450px;
+  max-height: 12px;
+  background-color: #eeeeee;
+  border: transparent;
+  color: black;
+}
+
 #color-ligthgray {
   background-color: #eeeeee;
   border: 1px solid #eeeeee;
   color: black;
 }
 
-#addTask-button {
+#inputGroup-sizing-default {
   background-color: #4f75ff;
-  border: 1px solid #4f75ff;
 }
 
 #dropdown-basic-button {
