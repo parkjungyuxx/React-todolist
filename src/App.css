@@ -1,5 +1,72 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
 .App {
   text-align: center;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #ebf4f6;
+  font-weight: 600;
+}
+
+.logo-text {
+  font-weight: 900;
+}
+
+.top-nav {
+  display: flex;
+  min-width: 700px;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.todo-list {
+  min-height: 500px;
+  min-width: 700px;
+  padding: 18px;
+  gap: 28px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+  border-radius: 8px;
+  background-color: #cbdceb;
+  border: 1px solid #cbdceb;
+}
+.list-box {
+  border: transparent;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+#color-ligthgray {
+  background-color: #eeeeee;
+  border: 1px solid #eeeeee;
+  color: black;
+}
+
+#addTask-button {
+  background-color: #4f75ff;
+  border: 1px solid #4f75ff;
+}
+
+#dropdown-basic-button {
+  background-color: #a6aebf;
+  border: 1px solid #a6aebf;
+  color: black;
+  width: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .App-logo {
