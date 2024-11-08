@@ -38,9 +38,9 @@ function App() {
           />
         </InputGroup>
         <DropdownButton id="dropdown-basic-button" title="All">
-          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+          <Dropdown.Item href="#/action-1">All</Dropdown.Item>
+          <Dropdown.Item href="#/action-2">Done</Dropdown.Item>
+          <Dropdown.Item href="#/action-3">To Do</Dropdown.Item>
         </DropdownButton>
       </div>
       <container className="todo-list">
@@ -56,6 +56,13 @@ function ListBox(props) {
   let [isEditing, setIsEditing] = useState(false);
   let [edit, setEdit] = useState(props.task[props.i]);
 
+  function SaveEdit() {
+    let copy = [...props.task];
+    copy[props.i] = edit;
+    props.setTask(copy);
+    setIsEditing(false);
+  }
+
   return (
     <div className="list-box">
       <div style={{ display: "flex", gap: "12px" }}>
@@ -63,9 +70,17 @@ function ListBox(props) {
         {isEditing == false ? (
           <span>{props.task[props.i]}</span>
         ) : (
-          <FloatingLabel controlId="floatingInput"  className="mb-3">
-            <Form.Control id="edit-input" type="text" placeholder="" />
-          </FloatingLabel>
+          <Form.Control
+            placeholder={`${props.task[props.i]}`}
+            onChange={(key) => {
+              setEdit(key.target.value);
+            }}
+            onKeyDown={(key) => {
+              if (key.key == "Enter") SaveEdit();
+            }}
+            id="edit-input"
+            type="text"
+          />
         )}
       </div>
 
