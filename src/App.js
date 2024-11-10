@@ -14,7 +14,9 @@ import { faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 
 function App() {
-  let [task, setTask] = useState([]);
+  const [task, setTask] = useState([]);
+  const [currentView, setCurrentView] = useState([]);
+  const [taskStatus, setTaskStatus] = useState(false);
   return (
     <div className="App">
       <h1 className="logo-text">TODO LIST</h1>
@@ -26,7 +28,7 @@ function App() {
           <Form.Control
             onKeyDown={(e) => {
               if (e.key == "Enter" && e.nativeEvent.isComposing == false) {
-                let copy = [...task];
+                const copy = [...task];
                 copy.push(e.target.value);
                 setTask(copy);
                 e.target.value = "";
@@ -52,12 +54,18 @@ function App() {
   );
 }
 
+// function changeTaskStatus(props) {
+//   {
+//     props.taskStatus === false ? true : false;
+//   }
+// }
+
 function ListBox(props) {
-  let [isEditing, setIsEditing] = useState(false);
-  let [edit, setEdit] = useState(props.task[props.i]);
+  const [isEditing, setIsEditing] = useState(false);
+  const [edit, setEdit] = useState(props.task[props.i]);
 
   function SaveEdit() {
-    let copy = [...props.task];
+    const copy = [...props.task];
     copy[props.i] = edit;
     props.setTask(copy);
     setIsEditing(false);
@@ -71,6 +79,7 @@ function ListBox(props) {
           <span>{props.task[props.i]}</span>
         ) : (
           <Form.Control
+            taskStatus={props.taskStatus}
             placeholder={`${props.task[props.i]}`}
             onChange={(key) => {
               setEdit(key.target.value);
@@ -87,7 +96,7 @@ function ListBox(props) {
       <div style={{ display: "flex", gap: "8px" }}>
         <Button
           onClick={() => {
-            let copy = [...props.task];
+            const copy = [...props.task];
             copy.splice(props.i, 1);
             props.setTask(copy);
           }}
